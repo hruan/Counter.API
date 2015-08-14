@@ -7,7 +7,7 @@ namespace Counter.Api.Configurations
     {
         public string GetAllowedOrigins()
         {
-            return Environment.GetEnvironmentVariable("ALLOWED_ORIGINS");
+            return Environment.GetEnvironmentVariable("AllowedOrigins");
         }
     }
 }
