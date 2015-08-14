@@ -10,7 +10,8 @@ namespace Counter.Api.Configurations
             var vars = new Dictionary<string, string>
             {
                 {"StorageConnectionString", "UseDevelopmentStorage=true"},
-                {"StorageContainerName", "counters"}
+                {"StorageContainerName", "counters"},
+                {"AllowedOrigins", "*"},
             };
 
             foreach (var kvp in vars)

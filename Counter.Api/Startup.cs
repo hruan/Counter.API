@@ -25,9 +25,7 @@ namespace Counter.Api
 
             var container = (containerBuilder ?? DefaultContainerBuilder)();
             var config = new HttpConfiguration();
-#if RELEASE
             EnableCors(config);
-#endif
             config.MapHttpAttributeRoutes();
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
 
@@ -46,13 +44,11 @@ namespace Counter.Api
             return builder.Build();
         }
 
-#if RELEASE
         private static void EnableCors(HttpConfiguration config)
         {
             var appConfig = new ApplicationConfigurationFromEnvironment();
             var cors = new EnableCorsAttribute(appConfig.GetAllowedOrigins(), "*", "*");
             config.EnableCors(cors);
         }
-#endif
     }
 }
